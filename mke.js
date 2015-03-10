@@ -262,18 +262,23 @@ mkE.O2O = function(target, source){
 		return;
 	}
 	for(var key in source){
-		if(typeof source[key] == 'undefined'){
+		var sourceValue = source[key];
+		if(typeof sourceValue == 'undefined'){
 			if(console && console.error){
 				console.error('mkE O2O undefined key', source, key);
 			}
 		}
-		if(source[key].constructor == Object){
+		if(sourceValue && sourceValue.constructor == Object){
 			if(!target[key]){
 				target[key] = {};
 			}
-			mkE.O2O(target[key], source[key]);
+			mkE.O2O(target[key], sourceValue);
 		}else{
-			target[key] = source[key];
+			try{
+				target[key] = sourceValue;
+			}catch(e){
+				// Somethings bad
+			}
 		}
 	}
 };
