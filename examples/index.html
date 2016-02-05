@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mkE example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="../mke.js"></script>
+    <script src="../examples/example-todo.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 center-block">
+            <h1 class="page-header">mkE Todo list example</h1>
+            <div id="todo-list"></div>
+            <script>
+                (function () {
+                    (new Todo).append(document.getElementById('todo-list'));
+                })();
+            </script>
+        </div>
+    </div>
+</div>
+</body>
+</html>
