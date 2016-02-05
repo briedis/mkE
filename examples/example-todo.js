@@ -81,12 +81,21 @@
         this.updateListState();
     };
 
+    /**
+     * If no items are in the list, show empty message
+     */
     Todo.prototype.updateListState = function () {
         if (!this.items.length) {
             mkE.clearNode(this.nodeItems);
             mkE({
-                tag: 'i',
-                text: 'No items in list'
+                tag: 'p',
+                els: [
+                    {
+                        tag: 'i',
+                        text: 'No items in list'
+                    }
+                ]
+
             }).append(this.nodeItems);
         }
     };
